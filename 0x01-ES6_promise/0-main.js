@@ -1,4 +1,4 @@
-import handleResponseFromAPI from "./2-then";
+import divideFunction from './8-try';
 
-const promise = Promise.resolve();
-handleResponseFromAPI(promise);
+console.log(divideFunction(10, 2));
+console.log(divideFunction(10, 0));
