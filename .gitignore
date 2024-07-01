@@ -9983,3 +9983,7 @@ nodesource_setup.sh
 0x00-ES6_basic/node_modules/extglob/README.md
 0x00-ES6_basic/node_modules/extglob/lib/compilers.js
 0x00-ES6_basic/node_modules/extglob/lib/extglob.js
+node_modules
+0x01-ES6_promise/package.json
+0x01-ES6_promise/package.json
+0x01-ES6_promise/package-lock.json
