@@ -1,40 +1,40 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createEmployee = exports.Teacher = exports.Director = void 0;
+exports.isDirector = isDirector;
+exports.executeWork = executeWork;
+exports.teachClass = teachClass;
 var Director = /** @class */ (function () {
     function Director() {
+        this.getCoffeeBreak = function () { return "Getting a coffee break"; };
+        this.workDirectorTasks = function () { return "Getting to director tasks"; };
+        this.workFromHome = function () { return "Working from home"; };
     }
-    Director.prototype.workFromHome = function () {
-        return "Working from home";
-    };
-    Director.prototype.getCoffeeBreak = function () {
-        return "Getting a coffee break";
-    };
-    Director.prototype.workDirectorTasks = function () {
-        return "Getting to director tasks";
-    };
     return Director;
 }());
+exports.Director = Director;
 var Teacher = /** @class */ (function () {
     function Teacher() {
+        this.getCoffeeBreak = function () { return "Cannot have a break"; };
+        this.workFromHome = function () { return "Cannot work from home"; };
+        this.workTeacherTasks = function () { return "Getting to work"; };
     }
-    Teacher.prototype.workFromHome = function () {
-        return "Cannot work from home";
-    };
-    Teacher.prototype.getCoffeeBreak = function () {
-        return "Cannot have a break";
-    };
-    Teacher.prototype.workTeacherTasks = function () {
-        return "Getting to work";
-    };
     return Teacher;
 }());
-function createEmployee(salary) {
-    if (Number(salary) < 500) {
-        return new Teacher();
-    }
-    else {
-        return new Director();
-    }
+exports.Teacher = Teacher;
+var createEmployee = function (salary) { return Number(salary) < 500 ? new Teacher() : new Director(); };
+exports.createEmployee = createEmployee;
+function isDirector(employee) {
+    return employee.workDirectorTasks() !== undefined;
 }
-
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+function executeWork(employee) {
+    var res = undefined;
+    (isDirector(employee)) ? res = employee.workDirectorTasks() : res = employee.workTeacherTasks();
+    return res;
+}
+// @ts-ignore
+// @ts-ignore
+function teachClass(todayClass) {
+    return (todayClass === "Math") ? "Teaching Math" : (todayClass === "History") ? "Teaching History" : "".concat(undefined);
+}
+teachClass('Math');
