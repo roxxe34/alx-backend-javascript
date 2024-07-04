@@ -32,8 +32,6 @@ function executeWork(employee) {
     (isDirector(employee)) ? res = employee.workDirectorTasks() : res = employee.workTeacherTasks();
     return res;
 }
-// @ts-ignore
-// @ts-ignore
 function teachClass(todayClass) {
     return (todayClass === "Math") ? "Teaching Math" : (todayClass === "History") ? "Teaching History" : "".concat(undefined);
 }
